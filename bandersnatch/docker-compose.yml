@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+
+  bandersnatch:
+    image: nil/bandersnatch:3.9
+#    image: pypa/bandersnatch
+    restart: always
+
+    volumes:
+      - ./bandersnatch.conf:/etc/bandersnatch.conf
+      # this would be /media/<user>/Toshiba/PypiMirror
+      - /media/nlaurance/PypiMirror:/pypi
+      - /home/nlaurance/PycharmProjects/local-pypi/bandersnatch/requirements:/requirements
+
+    command: python /bandersnatch/src/runner.py --config=/etc/bandersnatch.conf 3600
+
+
+  nginx:
+    image: nginx:1.19
+    restart: always
+    depends_on:
+      - bandersnatch
+    volumes:
+      - type: bind
+        source: /media/nlaurance/PypiMirror
+        target: /pypi
+        read_only: true
+
+      - ./nginx:/etc/nginx
+    ports:
+      - "80:80"
