@@ -1,0 +1,24 @@
+# Dockerfile version to build on Raspberry Pi
+
+FROM arm32v7/python:3.9 as base
+
+FROM base as builder
+RUN mkdir /install
+WORKDIR /install
+RUN pip install --target="/install" --upgrade pip setuptools wheel
+ADD requirements.txt /install
+RUN pip install --target="/install" \
+    -r requirements.txt
+
+FROM arm32v7/python:3.9-slim
+
+RUN mkdir /bandersnatch && mkdir /conf && chmod 777 /conf
+WORKDIR /bandersnatch
+COPY setup.cfg /bandersnatch
+COPY setup.py /bandersnatch
+COPY README.md /bandersnatch
+COPY LICENSE /bandersnatch
+
+COPY src /bandersnatch/src
+RUN pip install --no-cache-dir /bandersnatch
+CMD ["python", "/bandersnatch/src/runner.py", "3600"]

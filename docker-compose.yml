@@ -1,17 +1,19 @@
-version: '3.8'
+version: '3.3'
 
 services:
 
   bandersnatch:
-    image: nil/bandersnatch:3.9
-#    image: pypa/bandersnatch
+    # home made build
+    image: pyie/bandersnatch:pi
     restart: always
 
     volumes:
+      # how to store
       - ./bandersnatch.conf:/etc/bandersnatch.conf
-      # this would be /media/<user>/Toshiba/PypiMirror
-      - /media/nlaurance/PypiMirror:/pypi
-      - /home/nlaurance/PycharmProjects/local-pypi/bandersnatch/requirements:/requirements
+      # where to store (ext. USB HDD mount point)
+      - /media/pi/PypiMirror/mirror:/pypi
+      # what to store
+      - /home/pi/mirror/requirements:/requirements
 
     command: python /bandersnatch/src/runner.py --config=/etc/bandersnatch.conf 3600
 
@@ -23,7 +25,7 @@ services:
       - bandersnatch
     volumes:
       - type: bind
-        source: /media/nlaurance/PypiMirror
+        source: /media/pi/PypiMirror/mirror
         target: /pypi
         read_only: true
 
