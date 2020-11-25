@@ -1,4 +1,9 @@
+behave
 coverage
 freezegun
+lettuce
+locust
+nose
 pytest
+selenium
 tox

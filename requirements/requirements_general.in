@@ -1,0 +1,7 @@
+dogpile.cache
+dynaconf
+elixir
+psycopg2-binary
+requests
+sqlalchemy
+toml

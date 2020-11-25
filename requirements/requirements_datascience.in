@@ -1,7 +1,9 @@
 bokeh
+luigi
 matplotlib
 networkx
 nltk
+numba
 pandas
 pattern
 pillow
@@ -10,3 +12,4 @@ scrapy
 seaborn
 tensorflow
 theano
+fastparquet

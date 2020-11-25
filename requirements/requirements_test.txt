@@ -5,19 +5,39 @@
 #    pip-compile requirements_test.in
 #
 appdirs==1.4.4            # via virtualenv
+argparse==1.4.0           # via unittest2
 attrs==20.3.0             # via pytest
+behave==1.2.6             # via -r requirements_test.in
 coverage==5.3             # via -r requirements_test.in
 distlib==0.3.1            # via virtualenv
+extras==1.0.0             # via python-subunit, testtools
 filelock==3.0.12          # via tox, virtualenv
+fixtures==3.0.0           # via testtools
 freezegun==1.0.0          # via -r requirements_test.in
+fuzzywuzzy==0.18.0        # via lettuce
 iniconfig==1.1.1          # via pytest
+lettuce==0.2.23           # via -r requirements_test.in
+linecache2==1.0.0         # via traceback2
+mock==4.0.2               # via sure
+nose==1.3.7               # via -r requirements_test.in
 packaging==20.4           # via pytest, tox
+parse-type==0.5.2         # via behave
+parse==1.18.0             # via behave, parse-type
+pbr==5.5.1                # via fixtures, testtools
 pluggy==0.13.1            # via pytest, tox
 py==1.9.0                 # via pytest, tox
 pyparsing==2.4.7          # via packaging
 pytest==6.1.2             # via -r requirements_test.in
 python-dateutil==2.8.1    # via freezegun
-six==1.15.0               # via packaging, python-dateutil, tox, virtualenv
+python-mimeparse==1.6.0   # via testtools
+python-subunit==1.4.0     # via lettuce
+selenium==3.141.0         # via -r requirements_test.in
+six==1.15.0               # via behave, fixtures, packaging, parse-type, python-dateutil, sure, testtools, tox, unittest2, virtualenv
+sure==1.4.11              # via lettuce
+testtools==2.4.0          # via fixtures, python-subunit
 toml==0.10.2              # via pytest, tox
 tox==3.20.1               # via -r requirements_test.in
+traceback2==1.4.0         # via testtools, unittest2
+unittest2==1.1.0          # via testtools
+urllib3==1.26.2           # via selenium
 virtualenv==20.2.1        # via tox

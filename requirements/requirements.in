@@ -1,1 +1,4 @@
-requests
+-r requirements_datascience.in
+-r requirements_general.in
+-r requirements_test.in
+-r requirements_web.in
