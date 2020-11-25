@@ -13,7 +13,7 @@ services:
       # where to store (ext. USB HDD mount point)
       - /media/pi/PypiMirror/mirror:/pypi
       # what to store
-      - /home/pi/mirror/requirements:/requirements
+      - /home/pi/local-pypi/requirements:/requirements
 
     command: python /bandersnatch/src/runner.py --config=/etc/bandersnatch.conf 3600
 

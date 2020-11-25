@@ -77,8 +77,6 @@ sudo apt upgrade
 sudo reboot now
 ```
 
-
-
 ### Install secondary WIFI driver
 
 Download the [install-wifi.sh](https://gist.github.com/sighmon/a5030b46e21c304c5697f31bb43dcc22) script.
@@ -183,6 +181,13 @@ cp Dockerfile.pi ./bandersnatch
 cd bandersnatch
 docker build --no-cache -t pyie/bandersnatch:pi -f Dockerfile.pi .
 ```
+
+### Install configuration (This project)
+
+```
+git clone https://github.com/PythonIreland/local-pypi.git
+```
+
 
 ### Run stack
 
