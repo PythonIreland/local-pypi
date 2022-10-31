@@ -74,6 +74,7 @@ https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
 ```
 sudo apt update
 sudo apt upgrade
+sudo apt install openssh-server
 sudo reboot now
 ```
 
@@ -168,14 +169,13 @@ follow the procedure :
 https://phoenixnap.com/kb/docker-on-raspberry-pi
 
 ```
-sudo apt install docker-compose
+sudo apt update
+sudo apt install libxslt1-dev git screen docker-compose
 ```
 
 ### build bandersnatch image for Raspbian lite arm
 
 ```
-sudo apt update
-sudo apt install libxslt1-dev
 git clone https://github.com/pypa/bandersnatch
 cp Dockerfile.pi ./bandersnatch
 cd bandersnatch
@@ -192,7 +192,7 @@ git clone https://github.com/PythonIreland/local-pypi.git
 ### Run stack
 
 ```bash
-sudo apt install git screen
+cd local-pypi
 screen
 sudo docker-compose up
 ```
@@ -205,7 +205,7 @@ if new requirements file in bandersnatch config, or new packaged required within
 
 ```
 # enter the bandersnatch container
-sudo docker exec -it mirror_bandersnatch_1 bash
+sudo docker exec -it pypi-local_bandersnatch_1 bash
 # update new packages
 bandersnatch mirror --force-check
 ```
@@ -236,6 +236,10 @@ no screen at boot for Lite image:
 https://www.raspberrypi.org/forums/viewtopic.php?t=34061
 
 Best to simply login through ssh (VGA is old fashioned)
+
+make sure the external disk is mounted, otherwise process will
+fill up completely the SD Card.
+
 
 ## links
 

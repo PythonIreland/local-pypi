@@ -4,7 +4,7 @@ services:
 
   bandersnatch:
     image: pypa/bandersnatch:3.9
-    restart: always
+#    restart: always
 
     volumes:
       # how to store
@@ -19,7 +19,7 @@ services:
 
   nginx:
     image: nginx:1.19
-    restart: always
+ #   restart: always
     depends_on:
       - bandersnatch
     volumes:

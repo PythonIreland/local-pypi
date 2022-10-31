@@ -10,6 +10,6 @@ pillow
 scikit-learn
 scrapy
 seaborn
-tensorflow
+#tensorflow
 theano
 fastparquet
